@@ -1,0 +1,16 @@
+.TH archives 3 "September 2024" "0.0.1" "meta archives"
+.SH NAME
+
+meta archives is an all-purpose C library made by Fauna Polaris
+
+.SH SYNOPSIS
+.B #include <archives.h>
+
+.SH DESCRIPTION
+
+All functions in this library follow the naming convention described in \fBnaming\fP
+.sp
+.B str_ (string manipulation functions)
+.sp
+	size_t	str_len(char *str);
+

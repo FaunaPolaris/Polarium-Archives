@@ -1,0 +1,19 @@
+.TH str_len 3 "September 2024" "1.0" "meta archives"
+.SH NAME
+
+str_len	\-	Receives a true C string and returns its size.
+
+.SH SYNOPSIS
+
+#include <archives.h>
+
+.B int	str_len(char *string_to_count)
+
+.SH DESCRIPTION
+
+Receives as a parameter a (char *)str, assumed to be a true C string, then iterates it
+once, return the values of iterations done.
+
+.SH RETURN VALUE
+
+returns the size of the string, excluding the terminating NULL byte ('\\0')
