@@ -1,0 +1,19 @@
+.TH str_hasStr 3 "September 2024" "1.0" "meta archives"
+.SH NAME
+
+str_hasStr	\-	Check string for substring existance.
+
+.SH SYNOPSIS
+
+#include <archive.h>
+
+.B t_bool str_hasStr(const char *str, const char *to_find)
+
+.SH DESCRIPTION
+
+Receives as a parameter a (char *)str, assumed to be a true C string, then iterates
+it once, stopping at the first occurence of (char *)to_find.
+
+.SH RETURN VALUE
+
+If there is at least one substring (char *)to_find returns TRUE, else returns FALSE

@@ -30,7 +30,7 @@ INC		=	-I./includes
 all: header comp_obj $(OBJS) comp_tests $(BINS) $(NAME) footer 
 
 $(NAME):
-	@echo DONE
+	@echo "DONE"
 
 header:
 	@printf "     .    .       .     *  .         .  *     .  .      *      *    .      .    \n"
