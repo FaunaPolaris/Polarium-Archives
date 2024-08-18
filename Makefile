@@ -3,7 +3,7 @@ CC		=	gcc
 C_FLAGS	=	-Wall -Wextra -Werror
 D_FLAGS	=	-ggdb -g3
 
-SRC_STR	=	len hasChar
+SRC_STR	=	len hasChar hasStr
 SRC_STR	:=	$(addsuffix .c, $(SRC_STR))
 TST_STR	:=	$(addprefix tests/string/str_, $(SRC_STR))
 SRC_STR	:=	$(addprefix sources/string/str_, $(SRC_STR))
@@ -83,14 +83,14 @@ $(OBJ_DIR)/%.o: %.c
 	@$(eval CURRENT_FILE := $(shell expr $(CURRENT_FILE) + 1))
 	@$(eval PERCENT := $(shell echo "scale=2; $(CURRENT_FILE) /	$(words $(ALL)) * 100" | bc))
 	@printf	"$(GREEN)%3.0f%%$(RESET) | %-40s\n" "$(PERCENT)" "$(notdir $@)"
-	@$(CC) $(C_FLAGS) -c $< -o $@ $(INC)
+	@$(CC) $(C_FLAGS) $(D_FLAGS) -c $< -o $@ $(INC)
 
 $(BIN_DIR)/%: %.c
 	@mkdir -p $(@D)
 	@$(eval CURRENT_FILE := $(shell expr $(CURRENT_FILE) + 1))
 	@$(eval PERCENT := $(shell echo "scale=2; $(CURRENT_FILE) /	$(words $(ALL)) * 100" | bc))
 	@printf	"$(GREEN)%3.0f%%$(RESET) | %-40s\n" "$(PERCENT)" "$(notdir $@)"
-	@$(CC) $(C_FLAGS) $< $(OBJS) -o $@ $(INC)
+	@$(CC) $(C_FLAGS) $(D_FLAGS) $< $(OBJS) -o $@ $(INC)
 
 clean: cleaning
 	@rm -rf $(OBJ_DIR)

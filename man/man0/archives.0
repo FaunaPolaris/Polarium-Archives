@@ -12,5 +12,8 @@ All functions in this library follow the naming convention described in \fBnamin
 .sp
 .B str_ (string manipulation functions)
 .sp
+.TP
 	size_t	str_len(char *str);
+.TP
+	t_bool	str_hasChar(char *str, char c);
 
