@@ -1,8 +1,11 @@
 #ifndef ARCHIVES_H
 #define ARCHIVES_H
 
-#define TRUE 1
-#define FALSE 0
+typedef enum e_bool
+{
+	FALSE,
+	TRUE
+}	t_bool;
 
 #include <stdio.h>
 

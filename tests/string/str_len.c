@@ -8,6 +8,6 @@ int	main(int argc, char **argv)
 		printf("./test [string to count]\n");
 	}
 	else
-		printf("lenght of:  %-5s is : %-15i\n", argv[1], str_len(argv[1]));
+		printf("lenght of:  %-5s is : %-15i\n", argv[1], (int)str_len(argv[1]));
 	return (0);
 }
