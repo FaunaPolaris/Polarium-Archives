@@ -1,0 +1,48 @@
+.TH naming 5 "September 2024" "0.1" "meta archives"
+
+.SH NAME
+
+naming	\-	naming conventions for the meta archives
+
+.SH FUNCTIONS
+.B	(scope_)dataVerb(_overspecify)();
+.sp
+.TP
+.B scope_
+Optional prefix that specifies the scope of the function:
+	pt_		\-	prototyped function (assumed default).
+	st_		\-	static functions.
+.TP
+.B	data
+Specifies the data type being manipulated by the function:
+	str_	\-	functions that read or write to (char *)str.
+.TP
+.B Verb
+The actual action performed by the function.
+.TP
+.B _overspecify
+Optional suffix overspecifying the action made by the function, for example:
+.B	*Move_up
+.B	*Move_down
+.B	*Move_left
+.B	*Move_right
+.sp
+In this, overspecifications for the verb move, denoting the directions of movement.
+Multiple overspecifications can be added if needed be.
+
+.SH VARIABLES
+Variables should always use \fIsnake_case\fP and their names can vary drastically.
+.TP
+.B non-abstract variables
+Variables that will be used for raw calculations, usually a number reserved for a specific
+purpose, or a specific collections of numbers:
+.TS
+tab(|);
+c|c|c.
+VAR_TYPE|NAMES|OVERVIEW
+_
+iterator|i, j, k|iterates through data and hold positions.
+scalar|s, z, c|number to scale a vector.
+vector|v, w, u|a vector in space.
+matrix|m, n, x|numbers in rows and collumns.
+.TE
