@@ -1,50 +1,82 @@
-.TH naming 5 "September 2024" "0.1" "meta archives"
+.TH naming 5 "22.08.2024" "0.1" "meta archives"
 
 .SH NAME
 
 naming	\-	naming conventions for the meta archives
 
-.SH FUNCTIONS
-.B	(scope_)data_verb(Overspecify)();
-.sp
-.TP
-.B scope_
-Optional prefix that specifies the scope of the function:
-	pt_		\-	prototyped function (assumed default).
-	st_		\-	static functions.
-.TP
-.B	data
-Specifies the data type being manipulated by the function:
-	str_	\-	functions that read or write to (char *)str.
-.TP
-.B Verb
-The actual action performed by the function.
-.TP
-.B _overspecify
-Optional suffix overspecifying the action made by the function, for example:
-.B	*_moveUp
-.B	*_moveDown
-.B	*_moveLeft
-.B	*_moveRight
-.sp
-In this, overspecifications for the verb move, denoting the directions of movement.
-Multiple overspecifications can be added if needed be.
+.SH INCANTATIONS
 
-.SH VARIABLES
-Variables should always use \fIsnake_case\fP and their names can vary drastically.
+incantations(functions) are named based on the following format:
 .TP
-.B non-abstract variables
-Variables that will be used for raw calculations, usually a number reserved for a specific
-purpose, or a specific collections of numbers:
+.B return	(st_)type_verb(detail)();
+
+.TP
+.B  st_
+optional prefix to determine the scope of the function as static.
+.TP
+.B data
+data type to be manipulated by the function.
+.TP
+.B verb
+the action performed by the function to the data.
+.TP
+.B detail
+optional extra specifications to the action performed.
+
+.SH TYPE
+Most types can act and be acted upon in simmilar ways.
+execptions are noted.
+.TP
+.B
+conjure: magical creatures that can be created and manipulated.
 .TS
 tab(|);
-c|c|c.
-VAR_TYPE|NAMES|OVERVIEW
+|l | l | l|.
 _
-iterator|i, j, k|iterates through data and hold positions.
-scalar|s, z, c|number to scale a vector.
-vector|v, w, u|a vector in space.
-matrix|m, n, x|numbers in rows and collumns.
-string|str|a true C string.
-char|c|refer to ascii table position
+CREATURE          |PROTOTYPE          |OVERVIEW          
+_
+serpent|srp(_type) |linearly linked list
+ouroboros|oro(_type) |circularly linked list
+coatl|ctl(_type) |doubly linked list
+coatl oroboros|cro(_type) |doubly circularly linked list
+_
+Hydra|hyd(_type)|branching
+_
+Chimera|khi(_type(_type(...))|heterogeneous group
+Golen|gln(_type)|homogeneous group
+_
+Sphinx|sph(_type)|queue
+Minotaur|mtr(_type)|stack
+_
 .TE
+Conjurations can be named as the collection name of the primitive they hold
+(eg: veils, rune_book, constellation). In case the collection is heterogeneous,
+creatures can be named as:
+
+serpent, ouroboros:	echdina, typhon or jormungandr.
+
+coatl:				Quetzalcoatl
+
+.B
+Primitives: basic types that serve a specific purpose
+.TS
+tab(|);
+|r|c|c|l|.
+_
+PRIMITIVE|ABSTRACTION|NAMES|COLLECTION|
+_
+int|iterator|i, j, k|iters, itr
+int|offset|veil|veils, vls
+int|index|rune|rune_book, rbk
+int|timestamp|kin|clock, clk
+int|identifier|zodiac|constellation, cll
+int|file descriptor|scroll|trove, trv
+int|seed|seed|garden, grn
+int, float|scalar|s, z, c|scalars, scl
+int, float|coordinates|x, y, z|vector, vec
+char|ascii|sigil|string, str
+_
+.TE
+these variable names cover most cases, and, if needed, the names should hold suffixes
+specifying and differentianing the varible,
+(eg: rune_of_separation, scroll_of_map, seed_of_harmony)
