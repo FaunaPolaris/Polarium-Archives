@@ -24,41 +24,11 @@ the action performed by the function to the data.
 optional extra specifications to the action performed.
 
 .SH TYPE
-Most types can act and be acted upon in simmilar ways.
-execptions are noted.
-.TP
-.B
-conjure: magical creatures that can be created and manipulated.
-.TS
-tab(|);
-|l | l | l|.
-_
-CREATURE          |PROTOTYPE          |OVERVIEW          
-_
-serpent|srp(_type) |linearly linked list
-ouroboros|oro(_type) |circularly linked list
-coatl|ctl(_type) |doubly linked list
-coatl oroboros|cro(_type) |doubly circularly linked list
-_
-Hydra|hyd(_type)|branching
-_
-Chimera|khi(_type(_type(...))|heterogeneous group
-Golen|gln(_type)|homogeneous group
-_
-Sphinx|sph(_type)|queue
-Minotaur|mtr(_type)|stack
-_
-.TE
-Conjurations can be named as the collection name of the primitive they hold
-(eg: veils, rune_book, constellation). In case the collection is heterogeneous,
-creatures can be named as:
-
-serpent, ouroboros:	echdina, typhon or jormungandr.
-
-coatl:				Quetzalcoatl
+The most basic types are primitives, representing a bit sequence that should be abstracted
+into a number. number are the foundation, and they can be used to permorf all incantations.
 
 .B
-Primitives: basic types that serve a specific purpose
+Primitives: bit sequences abstracted into numbers.
 .TS
 tab(|);
 |r|c|c|l|.
@@ -74,9 +44,91 @@ int|file descriptor|scroll|trove, trv
 int|seed|seed|garden, grn
 int, float|scalar|s, z, c|scalars, scl
 int, float|coordinates|x, y, z|vector, vec
-char|ascii|sigil|string, str
+char|ascii|sigil, sgl|string, str
 _
 .TE
+.TP
+
+These primitives can be used as logical variables to perform incantations of different
+
+.B
+conjure: magical creatures that can be created and manipulated.
+.TS
+tab(|);
+|l | l | l|.
+_
+CREATURE          |PROTOTYPE          |OVERVIEW          
+_
+serpent|srp(_type) |linearly linked list
+ouroboros|oro(_type) |circularly linked list
+coatl|ctl(_type) |doubly linked list
+coatl oroboros|cro(_type) |doubly circularly linked list
+_
+Hydra|hyd(_type)|branching structure
+_
+Chimera|khi(Type(Type(...)))|heterogeneous group
+Golen|gln(_type)|homogeneous group
+_
+Sphinx|sph(_type)|queue
+Minotaur|mtr(_type)|stack
+_
+Cipactli|tli(_type)|matrix
+
+.TE
+Conjurations can be named as the collection name of the primitive they hold
+(eg: veils, rune_book, constellation). In case the collection is heterogeneous,
+creatures can be named as:
+
+serpent, ouroboros:	echdina, typhon or jormungandr.
+
+coatl:				Quetzalcoatl
+
 these variable names cover most cases, and, if needed, the names should hold suffixes
 specifying and differentianing the varible,
 (eg: rune_of_separation, scroll_of_map, seed_of_harmony)
+
+.SH VERB
+
+a verb is the action performed by the incantation:
+.TP
+.B scry		| scries, scried, scrying		| to learn existance
+
+scry(for); str_scry(for)String	\- learn if str has String
+.TP
+.B divine	| divines, divined, divining		| to learn position
+
+divine(for); str_divine(for)String	\- find position of String in str
+.TP
+.B inscribe	| inscribes, inscribed, inscribing	| to carve as to make permanent
+
+inscribe(to); str_inscribe(to)Scroll	\- carve str into Scroll
+.TP
+.B imprint	| imprints, imprinted, imprinting	| to stamp one on to another
+
+imprint(from); str_imprint(from)String(at)Rune	\- imprint String into str at rune
+.TP
+.B reave	| reaves, reaved, reaving			| to plunder primitives
+
+reave(for); str_reave(for)String	\- plunders str's first String
+
+.TP
+.B sunder	| sunders, sundered, sundering		| to split apart
+
+sunder(at);	str_sunder(at)Sigil \- splits str at first Sigil
+
+runver(at);	str_runver(at)Sigil	\- splits str at last Sigil
+
+insunder(at);	str_insunder(at)Sigil	\-	splits str at every Sigil
+.TP
+.B weave	| weaves, woven, weaving	| to form by interlacing.
+
+weave(to);	str_weave(to)String	\- weaves str and String togheter
+.TP
+.B scan		| scans, scanned, scanning	| to read from
+
+scanN;	scl_scanN
+
+scanLine;	scl_scanLine
+
+scanRow;	mtx_scanRow
+

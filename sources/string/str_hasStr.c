@@ -1,6 +1,6 @@
 #include "archives.h"
 
-t_bool	str_hasStr(const char *str, const char *to_find)
+t_bool	str_scryStr(const char *str, const char *to_find)
 {
 	size_t	i;
 	size_t	j;
