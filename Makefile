@@ -4,18 +4,16 @@ C_FLAGS	=	-Wall -Wextra -Werror
 D_FLAGS	=	-ggdb -g3
 
 SRC_STR	=	len scrySigil scryString
+ORA_STR	:=	$(addprefix oracules/string/str_, $(SRC_STR))
+ORA_STR	:=	$(addsuffix _oracule.c, $(ORA_STR))
 SRC_STR	:=	$(addsuffix .c, $(SRC_STR))
-TST_STR	:=	$(addprefix tests/string/str_, $(SRC_STR))
 SRC_STR	:=	$(addprefix sources/string/str_, $(SRC_STR))
 
-SRC_ALL	=	$(SRC_STR)
-TST_ALL = 	$(TST_STR)
+SRC_ALL	=	$(SRC_STR) $(ORA_STR)
 
 OBJ_DIR	=	objects
 OBJS	=	$(addprefix $(OBJ_DIR)/, $(SRC_ALL:.c=.o))
 
-BIN_DIR	=	binaries
-BINS	=	$(addprefix $(BIN_DIR)/, $(TST_ALL:.c=))
 
 ALL		=	$(OBJS) $(BINS)
 
@@ -27,7 +25,12 @@ GREEN	=	\033[0;38;2;189;191;9;1m
 
 INC		=	-I./includes
 
-all: header comp_obj $(OBJS) comp_tests $(BINS) $(NAME) footer 
+TRL_MAIN	=	oracules/trial_by_fire.c
+
+all: header comp_obj $(OBJS) TrialbyFire $(NAME) footer 
+
+TrialbyFire:
+	@$(CC) $(C_FLAG) $(D_FLAGS) $(INC) $(OBJS) $(TRL_MAIN) -o $@
 
 $(NAME):
 	@echo "DONE"
@@ -53,12 +56,6 @@ comp_obj:
 	@printf "%-30s%-20s%30s" "META archives" "Compiling objects" "META Archives"
 	@printf "$(RESET)\n$(COMMON)\n"
 	@printf "%80s\n" "Starting compilation of object files..."
-
-comp_tests:
-	@printf "$(RESET)\n$(DIVISOR)"
-	@printf "%-30s%-20s%30s" "META archives" "Compiling tests" "META Archives"
-	@printf "$(RESET)\n$(COMMON)\n"
-	@printf "%80s\n" "Starting compilation of test binaries..."
 
 footer:
 	@printf "        *    .         .          .        .        .       *          .          *\n"
@@ -94,10 +91,9 @@ $(BIN_DIR)/%: %.c
 
 clean: cleaning
 	@rm -rf $(OBJ_DIR)
-	@rm -rf $(BIN_DIR)/tests
 
 fclean: clean fcleaning
-	@rm -rf $(BIN_DIR)
+	@rm -rf TrialbyFire
 
 cleaning:
 	@printf "$(RESET)\n$(DIVISOR)"

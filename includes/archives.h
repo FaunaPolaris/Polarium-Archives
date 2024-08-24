@@ -10,5 +10,6 @@ typedef enum e_bool
 #include <stdio.h>
 
 #include "strings.h"
+#include "trial_by_fire.h"
 
 #endif
