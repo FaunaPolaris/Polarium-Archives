@@ -8,7 +8,7 @@ int	main(int argc, char **argv)
 		printf("./test [str_to_check] [char to look for]");
 		return (1);
 	}
-	if (str_hasChar(argv[1], argv[2][0]))
+	if (str_scrySigil(argv[1], argv[2][0]))
 		printf("%s has %c\n",argv[1], argv[2][0]);
 	else
 		printf("%s does not have %c\n", argv[1], argv[2][0]);

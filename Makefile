@@ -3,7 +3,7 @@ CC		=	gcc
 C_FLAGS	=	-Wall -Wextra -Werror
 D_FLAGS	=	-ggdb -g3
 
-SRC_STR	=	len hasChar hasStr
+SRC_STR	=	len scrySigil scryString
 SRC_STR	:=	$(addsuffix .c, $(SRC_STR))
 TST_STR	:=	$(addprefix tests/string/str_, $(SRC_STR))
 SRC_STR	:=	$(addprefix sources/string/str_, $(SRC_STR))

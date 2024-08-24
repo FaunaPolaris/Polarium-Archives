@@ -49,7 +49,8 @@ _
 .TE
 .TP
 
-These primitives can be used as logical variables to perform incantations of different
+These primitives can be used as logical variables to perform incantations 
+of different types
 
 .B
 conjure: magical creatures that can be created and manipulated.
@@ -73,7 +74,8 @@ Sphinx|sph(_type)|queue
 Minotaur|mtr(_type)|stack
 _
 Cipactli|tli(_type)|matrix
-
+||vector
+_
 .TE
 Conjurations can be named as the collection name of the primitive they hold
 (eg: veils, rune_book, constellation). In case the collection is heterogeneous,
@@ -126,9 +128,11 @@ weave(to);	str_weave(to)String	\- weaves str and String togheter
 .TP
 .B scan		| scans, scanned, scanning	| to read from
 
-scanN;	scl_scanN
+scanN;	scl_scanN	\-	scans next N sigils
 
-scanLine;	scl_scanLine
+scanLine;	scl_scanLine	\-	scans next line
 
-scanRow;	mtx_scanRow
+scanRow;	tli_scanRow	\-	scans next row
+
+scanCol;	tli_scanCol	\-	scans next collumn
 

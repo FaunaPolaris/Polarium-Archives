@@ -8,7 +8,7 @@ int	main(int argc, char **argv)
 		printf("./str_hasStr [str to search] [str to find]\n");
 		return (0);
 	}
-	if (str_hasStr(argv[1], argv[2]))
+	if (str_scryString(argv[1], argv[2]))
 		printf("\"%s\" is a substring of: \"%s\"\n", argv[2], argv[1]);
 	else
 		printf("\"%s\" is not a substring of: \"%s\"\n", argv[2], argv[1]);
