@@ -15,7 +15,7 @@ t_bool	str_scryString(const char *str, const char *string)
 			j = -1;
 			while (string[++j])
 			{
-				if (sring[j] != str[i + j])
+				if (string[j] != str[i + j])
 					break ;
 			}
 			if (!string[j])

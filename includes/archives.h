@@ -3,8 +3,8 @@
 
 typedef enum e_bool
 {
-	FALSE,
-	TRUE
+	DENIED,
+	AFFIRMED
 }	t_bool;
 
 #include <stdio.h>
