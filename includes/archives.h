@@ -1,11 +1,11 @@
 #ifndef ARCHIVES_H
 #define ARCHIVES_H
 
-typedef enum e_bool
+typedef enum e_chalice_of_truth
 {
 	DENIED,
 	AFFIRMED
-}	t_bool;
+}	chalice_of_truth;
 
 #include <stdio.h>
 #include <stdlib.h>
