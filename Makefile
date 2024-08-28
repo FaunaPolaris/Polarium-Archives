@@ -3,13 +3,16 @@ CC		=	gcc
 C_FLAGS	=	-Wall -Wextra -Werror
 D_FLAGS	=	-ggdb -g3
 
-SRC_STR	=	len scrySigil scryString
-ORA_STR	:=	$(addprefix oracules/string/str_, $(SRC_STR))
-ORA_STR	:=	$(addsuffix _oracule.c, $(ORA_STR))
+SRC_STR	=	len scrySigil scryString divineString divineSigil clone mimic discernSigil
+SRC_STR	+=	sunderSigil insunderSigil mimicSigil
 SRC_STR	:=	$(addsuffix .c, $(SRC_STR))
 SRC_STR	:=	$(addprefix sources/string/str_, $(SRC_STR))
 
-SRC_ALL	=	$(SRC_STR) $(ORA_STR)
+SRC_TPS	=	banish
+SRC_TPS	:=	$(addsuffix .c, $(SRC_TPS))
+SRC_TPS	:=	$(addprefix sources/tapestry/tps_, $(SRC_TPS))
+
+SRC_ALL	=	$(SRC_STR) $(SRC_TPS)
 
 OBJ_DIR	=	objects
 OBJS	=	$(addprefix $(OBJ_DIR)/, $(SRC_ALL:.c=.o))

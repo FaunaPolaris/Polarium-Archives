@@ -17,9 +17,38 @@ int	main(int argc, char**argv)
 		printf("-Oracule String-\n");
 		printf("%s\n", argv[i]);
 		printf("%80s\n", "**");
-		str_len_oracule(argv[i]);
-		str_scrySigil_oracule(argv[i], 'F');
-		str_scryString_oracule(argv[i], "Fauna");
+		char	*str = str_clone(argv[i]);
+		printf("clone: %s\n", str);
+		free(str);
+		str = str_mimic(argv[i], 3);
+		printf("mimic: %s\n", str);
+		free(str);
+		str = str_mimicSigil(argv[i], '|');
+		printf("mimicSigil: %s\n", str);
+		free(str);
+		char	**tapestry;
+		tapestry = str_sunderSigil(argv[i], '|', 0);
+		printf("sundered at \'|\'\n", str);
+		if (tapestry)
+		{
+			for (int j = 0; tapestry[j]; j++)
+				printf("- %s -", tapestry[j]);
+			tps_banish(tapestry);
+			printf("\n");
+		}
+		else
+			printf("no tapestry created\n");
+		tapestry = str_insunderSigil(argv[i], '|', 0);
+		printf("isundered at \'|\'\n", str);
+		if (tapestry)
+		{
+			for (int j = -1; tapestry[++j];)
+				printf("- %s -", tapestry[j]);
+			tps_banish(tapestry);
+			printf("\n");
+	}
+	else
+		printf("no tapestry created\n");
 		printf("%80s\n", "**");
 	}
 }

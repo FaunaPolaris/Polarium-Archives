@@ -44,7 +44,10 @@ int|file descriptor|scroll|trove, trv
 int|seed|seed|garden, grn
 int, float|scalar|s, z, c|scalars, scl
 int, float|coordinates|x, y, z|vector, vec
+int *, float *|number line|line, lne|lines, lns
 char|ascii|sigil, sgl|string, str
+char*|ascii|string, str|tapestry, tps
+void**|matrice of items|tapestry, tps|tapestry, tps
 _
 .TE
 .TP
@@ -95,7 +98,8 @@ a verb is the action performed by the incantation:
 .TP
 .B scry		| scries, scried, scrying		| to learn existance
 
-scry(for); str_scry(for)String	\- learn if str has String
+scry(for)Type; str_scry(for)String	\- learn if str has String
+scry(for)Attribute;	str_scry(for)Upper	\- learn is str is Upper
 .TP
 .B divine	| divines, divined, divining		| to learn position
 

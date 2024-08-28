@@ -8,8 +8,10 @@ typedef enum e_bool
 }	t_bool;
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "strings.h"
+#include "tapestry.h"
 #include "trial_by_fire.h"
 
 #endif

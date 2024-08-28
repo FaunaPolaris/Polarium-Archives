@@ -6,14 +6,4 @@ meta archives is an all-purpose C library made by Fauna Polaris
 .SH SYNOPSIS
 .B #include <archives.h>
 
-.SH DESCRIPTION
-
-All functions in this library follow the naming convention described in \fBnaming\fP
-.sp
-.B str_ (string manipulation functions)
-.sp
-.TP
-	size_t	str_len(char *str);
-.TP
-	t_bool	str_hasChar(char *str, char c);
-
+.SH INCANTATIONS
